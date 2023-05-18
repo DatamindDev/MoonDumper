@@ -8,7 +8,7 @@ luamin.minify(false);
 
 
 var input = fs.readFileSync(__dirname + '\\input.lua', 'utf8');
-var x = fs.writeFileSync(__dirname + '\\dumped.lua', '-- [BYFRON] : Byfron Moonsec V3 Beta Dumper @ https://discord.gg/SXQvSGme7F\nthingbytecode="";\n' + input);
+var x = fs.writeFileSync(__dirname + '\\dumped.lua', '-- github.com/DatamindDev \nthingbytecode="";\n' + input);
 var newinput = fs.readFileSync(__dirname + '\\dumped.lua', 'utf8');
 const matches = (newinput.match(
 /local function (.)\(.\)return (.)\[.\]end/m
@@ -38,7 +38,7 @@ if (matches) {
             newinput = newinput.replace(match_thing[0], match_thing[0] + "thingbytecode2=thingbytecode:match('MoonSec_StringsHiddenAttr(.+)');print('output 1:\\n');print(thingbytecode);print('\\noutput 2:\\n');print(thingbytecode2);");
         }
         fs.writeFileSync(__dirname + '\\dumped.lua', newinput);
-        console.log('wrote deobfuscation stuff, run in studio or wtv u chosed');
+        console.log('Succesfully Dumped.Saved to dumped.lua');
     }
     catch (err) {
         console.log(`[!] - Lua-Dumper had a error! ${err}`);
